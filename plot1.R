@@ -21,7 +21,6 @@
 # 	`PLOT_Y_LABEL`: Label of the Y axis.
 # 	`SCALE_FACTOR`: Scaling factor for the emissions data.
 DATA_TABLE_PACKAGE <- "data.table"
-LATTICE_PACKAGE <- "lattice"
 EMISSIONS_DATA_VARIABLE <- "emissions_data"
 DATA_FILE <- "summarySCC_PM25.rds"
 LEGEND_FILE <- "Source_Classification_Code.rds"
@@ -41,13 +40,6 @@ if (!DATA_TABLE_PACKAGE %in% installed.packages ( )) {
 }
 require (data.table)
 
-# The package `lattice` is needed to perform the actual plotting.
-if (!LATTICE_PACKAGE %in% installed.packages ( )) {
-	install.packages (LATTICE_PACKAGE)
-}
-require (lattice)
-
-
 # Reads the emissions data.
 # The data is read only if it's not previously loaded in memory.
 print ("Reading emissions data...")
@@ -64,15 +56,16 @@ print ("Creating aggregated data...")
 emissions_by_year <- data.table (emissions_data) [, list (emissions = (sum (Emissions) / SCALE_FACTOR)), by = year]
 
 print ("Creating the plot...")
-print (with (emissions_by_year, {
-	xyplot (
-		emissions ~ year,
+with (emissions_by_year, {
+	plot (
+		year,
+		emissions,
 		type = PLOT_TYPE,
 		xlab = PLOT_X_LABEL,
 		ylab = PLOT_Y_LABEL,
 		main = PLOT_TITLE
 	)
-}))
+})
 
 # Closes the PNG file graphic device.
 dev.off ( )
