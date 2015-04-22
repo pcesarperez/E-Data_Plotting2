@@ -6,8 +6,13 @@
 *-Ex.R
 
 # RStudio files
+.RData
 .Rproj.user/
 
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
+
+# Data files (too large to store in the repo)
+Source_Classification_Code.rds
+summarySCC_PM25.rds
