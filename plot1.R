@@ -8,7 +8,6 @@
 
 # Constants
 # 	`DATA_TABLE_PACKAGE`: Name of the `data.table` package, used in data transformation.
-# 	`LATTICE_PACKAGE`: Name of the `lattice` package, used to plot the data.
 # 	`EMISSIONS_DATA_VARIABLE`: Name of the variable wich holds the emissions data.
 # 	`DATA_FILE`: PM2.5 emissions data filename.
 # 	`LEGEND_FILE`: PM2.5 source names.
