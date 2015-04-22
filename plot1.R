@@ -6,11 +6,10 @@
 # Author: Pablo César Pérez González (pcesarperez@gmail.com)
 
 
-# Constants
+# Constants.
 # 	`DATA_TABLE_PACKAGE`: Name of the `data.table` package, used in data transformation.
 # 	`EMISSIONS_DATA_VARIABLE`: Name of the variable wich holds the emissions data.
 # 	`DATA_FILE`: PM2.5 emissions data filename.
-# 	`LEGEND_FILE`: PM2.5 source names.
 # 	`PNG_PLOT_FILE`: Filename of the PNG file which will hold the plot.
 # 	`PNG_WIDTH`: Width of the PNG file.
 # 	`PNG_HEIGHT`: Height of the PNG file.
@@ -22,7 +21,6 @@
 DATA_TABLE_PACKAGE <- "data.table"
 EMISSIONS_DATA_VARIABLE <- "emissions_data"
 DATA_FILE <- "summarySCC_PM25.rds"
-LEGEND_FILE <- "Source_Classification_Code.rds"
 PNG_PLOT_FILE <- "plot1.png"
 PNG_WIDTH <- 512
 PNG_HEIGHT <- 512
