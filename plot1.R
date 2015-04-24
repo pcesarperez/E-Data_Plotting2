@@ -49,6 +49,8 @@ png (filename = PNG_PLOT_FILE, width = PNG_WIDTH, height = PNG_HEIGHT)
 
 # We need to summarize the data, aggregating the emissions by year.
 # The scale is stretched to millions of tons, just for readability.
+# An explanation of the `ylim` parameter:
+# http://r.789695.n4.nabble.com/barplot-y-axis-too-short-td1459406.html
 print ("Creating aggregated data...")
 emissions_by_year <- data.table (emissions_data) [, list (emissions = (sum (Emissions) / SCALE_FACTOR)), by = year]
 

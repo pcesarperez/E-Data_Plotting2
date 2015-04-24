@@ -49,6 +49,8 @@ png (filename = PNG_PLOT_FILE, width = PNG_WIDTH, height = PNG_HEIGHT)
 
 # We need to summarize the data, aggregating the emissions by year.
 # We need also to create a subset of the data, focusing in Baltimore, Maryland.
+# An explanation of the `ylim` parameter:
+# http://r.789695.n4.nabble.com/barplot-y-axis-too-short-td1459406.html
 print ("Creating aggregated data...")
 emissions_in_baltimore = subset (emissions_data, fips == BALTIMORE_CODE)
 emissions_by_year_in_baltimore <- data.table (emissions_in_baltimore) [, list (emissions = sum (Emissions)), by = year]
