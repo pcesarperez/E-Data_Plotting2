@@ -21,6 +21,7 @@
 # * `PLOT_Y_LABEL`: Label of the Y axis.
 # * `MOTOR_VEHICLE_SOURCES_PATTERN`: Regular expression pattern for motor vehicles related sources.
 # * `BALTIMORE_CODE`: Federal Information Processing Standard code for Baltimore, Maryland.
+# * `EXTRANEOUS_SOURCE`: Emission source included by mistake in the first filter of the sources.
 DATA_TABLE_PACKAGE <- "data.table"
 EMISSIONS_DATA_VARIABLE <- "emissions_data"
 SOURCES_DATA_VARIABLE <- "emissions_sources"
