@@ -86,8 +86,7 @@ print ("Filtering motor vehicle emissions...")
 motor_vehicle_emissions <- emissions_data [emissions_data$SCC %in% motor_vehicle_sources$SCC, ]
 
 # We need to summarize the data, aggregating the emissions by year.
-# We also subset the date, focusing in Baltimore.
-# The Y axis is scaled down to improve readability.
+# We also subset the data, focusing in Baltimore.
 print ("Creating aggregated data...")
 motor_vehicle_emissions_in_baltimore = subset (motor_vehicle_emissions, fips == BALTIMORE_CODE)
 motor_vehicle_emissions_per_year_in_baltimore <- data.table (motor_vehicle_emissions_in_baltimore) [ , list (emissions = sum (Emissions)), by = year]
