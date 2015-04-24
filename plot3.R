@@ -67,7 +67,10 @@ png (filename = PNG_PLOT_FILE, width = PNG_WIDTH, height = PNG_HEIGHT)
 # We need also to create a subset of the data, focusing in Baltimore, Maryland.
 print ("Creating aggregated data...")
 emissions_in_baltimore = subset (emissions_data, fips == BALTIMORE_CODE)
-emissions_per_year_and_type_in_baltimore <- data.table (emissions_in_baltimore) [, list (emissions = sum (Emissions)), by = list (year, type)]
+emissions_per_year_and_type_in_baltimore <- data.table (emissions_in_baltimore) [,
+	list (emissions = sum (Emissions)),
+	by = list (year, type)
+]
 
 # This page helped with the plot:
 # http://www.r-bloggers.com/using-r-barplot-with-ggplot2/
