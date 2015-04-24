@@ -51,7 +51,6 @@ if (!GGPLOT2_PACKAGE %in% installed.packages ( )) {
 	install.packages (GGPLOT2_PACKAGE)
 }
 require (data.table)
-require (reshape2)
 require (ggplot2)
 
 # Reads the emissions data.
