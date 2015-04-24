@@ -66,5 +66,5 @@ with (emissions_by_year, {
 	)
 })
 
-# Closes the PNG file graphic device.
+# Closes the PNG file graphics device.
 dev.off ( )

@@ -67,5 +67,5 @@ with (emissions_by_year_in_baltimore, {
 	)
 })
 
-# Closes the PNG file graphic device.
+# Closes the PNG file graphics device.
 dev.off ( )
