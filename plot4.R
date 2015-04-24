@@ -9,7 +9,6 @@
 # Constants.
 #
 # * `DATA_TABLE_PACKAGE`: Name of the `data.table` package, used in data transformation.
-# * `GGPLOT2_PACKAGE`: Name of the `ggplot2` package, used to plot the data.
 # * `EMISSIONS_DATA_VARIABLE`: Name of the variable wich holds the emissions data.
 # * `SOURCES_DATA_VARIABLE`: Name of the variable which holds the different sources for the emissions.
 # * `DATA_FILE`: PM2.5 emissions data filename.
@@ -24,7 +23,6 @@
 # * `COMBUSTION_SOURCES_PATTERN`: Regular expression pattern for combustion related sources.
 # * `COAL_SOURCES_PATTERN`: Regular expression for coal related sources.
 DATA_TABLE_PACKAGE <- "data.table"
-GGPLOT2_PACKAGE <- "ggplot2"
 EMISSIONS_DATA_VARIABLE <- "emissions_data"
 SOURCES_DATA_VARIABLE <- "emissions_sources"
 DATA_FILE <- "summarySCC_PM25.rds"
@@ -47,11 +45,7 @@ COAL_SOURCES_PATTERN <- "coal"
 if (!DATA_TABLE_PACKAGE %in% installed.packages ( )) {
 	install.packages (DATA_TABLE_PACKAGE)
 }
-if (!GGPLOT2_PACKAGE %in% installed.packages ( )) {
-	install.packages (GGPLOT2_PACKAGE)
-}
 require (data.table)
-require (ggplot2)
 
 # Reads the emissions data.
 # The data is read only if it's not previously loaded in memory.
@@ -89,6 +83,7 @@ print ("Filtering coal combustion emissions...")
 coal_combustion_emissions <- emissions_data [emissions_data$SCC %in% coal_combustion_sources$SCC, ]
 
 # We need to summarize the data, aggregating the emissions by year.
+# The Y axis is scaled down to improve readability.
 print ("Creating aggregated data...")
 coal_combustion_emissions_per_year <- data.table (coal_combustion_emissions) [ , list (emissions = sum (Emissions) / SCALING_FACTOR), by = year]
 
