@@ -7,6 +7,7 @@
 
 
 # Constants.
+#
 # * `DATA_TABLE_PACKAGE`: Name of the `data.table` package, used in data transformation.
 # * `GGPLOT2_PACKAGE`: Name of the `ggplot2` package, used to plot the data.
 # * `EMISSIONS_DATA_VARIABLE`: Name of the variable wich holds the emissions data.
