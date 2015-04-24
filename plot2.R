@@ -55,13 +55,13 @@ emissions_by_year_in_baltimore <- data.table (emissions_in_baltimore) [, list (e
 
 print ("Creating the plot...")
 with (emissions_by_year_in_baltimore, {
-	plot (
-		year,
+	barplot (
 		emissions,
-		type = PLOT_TYPE,
+		names.arg = year,
 		xlab = PLOT_X_LABEL,
 		ylab = PLOT_Y_LABEL,
-		main = PLOT_TITLE
+		main = PLOT_TITLE,
+		ylim = c (0, signif (max (emissions) * 1.1, digits = 1))
 	)
 })
 

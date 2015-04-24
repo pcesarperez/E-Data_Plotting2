@@ -54,13 +54,13 @@ emissions_by_year <- data.table (emissions_data) [, list (emissions = (sum (Emis
 
 print ("Creating the plot...")
 with (emissions_by_year, {
-	plot (
-		year,
+	barplot (
 		emissions,
-		type = PLOT_TYPE,
+		names.arg = year,
 		xlab = PLOT_X_LABEL,
 		ylab = PLOT_Y_LABEL,
-		main = PLOT_TITLE
+		main = PLOT_TITLE,
+		ylim = c (0, signif (max (emissions) * 1.1, digits = 1))
 	)
 })
 
