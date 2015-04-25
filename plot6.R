@@ -1,5 +1,5 @@
 # plot6.R
-# PM2.5 emissions comparison of motor vehicle related sources between  Baltimore and Los Angeles, over the period 1999-2008.
+# PM2.5 emissions comparison of motor vehicle related sources between Baltimore and Los Angeles, over the period 1999-2008.
 # Course: Exploratory Data Analysis.
 # Data Science Specialization.
 # Second course project.
