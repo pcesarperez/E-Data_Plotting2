@@ -73,10 +73,10 @@ png (filename = PNG_PLOT_FILE, width = PNG_WIDTH, height = PNG_HEIGHT)
 # The combustion sources are tagged in the first level.
 # The coal sources are tagged in the fourth level.
 print ("Filtering coal combustion related sources...")
-combustion_sources <- grepl (pattern = COMBUSTION_SOURCES_PATTERN, emission_sources$SCC.Level.One, ignore.case = TRUE)
-coal_sources <- grepl (pattern = COAL_SOURCES_PATTERN, emission_sources$SCC.Level.Four, ignore.case = TRUE)
+combustion_sources <- grepl (pattern = COMBUSTION_SOURCES_PATTERN, emissions_sources$SCC.Level.One, ignore.case = TRUE)
+coal_sources <- grepl (pattern = COAL_SOURCES_PATTERN, emissions_sources$SCC.Level.Four, ignore.case = TRUE)
 
-coal_combustion_sources <- emission_sources [(combustion_sources & coal_sources), ]
+coal_combustion_sources <- emissions_sources [(combustion_sources & coal_sources), ]
 
 # Second step: filtering emission data.
 print ("Filtering coal combustion emissions...")

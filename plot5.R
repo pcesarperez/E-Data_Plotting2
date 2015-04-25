@@ -41,7 +41,6 @@ EXTRANEOUS_SOURCE <- "Bulk Gasoline Terminals"
 # The following packages need to be installed:
 #
 # * `data.table`
-# * `ggplot2
 if (!DATA_TABLE_PACKAGE %in% installed.packages ( )) {
 	install.packages (DATA_TABLE_PACKAGE)
 }
@@ -76,9 +75,9 @@ png (filename = PNG_PLOT_FILE, width = PNG_WIDTH, height = PNG_HEIGHT)
 # We will consider a valid source these with "gasoline" or "diesel" in the `EI.Sector` column.
 # However, we need to remove the "Bulk Gasoline Terminals" source.
 print ("Filtering motor vehicle related sources...")
-motor_vehicle_discriminants <- grepl (pattern = MOTOR_VEHICLE_SOURCES_PATTERN, emission_sources$EI.Sector, ignore.case = TRUE)
+motor_vehicle_discriminants <- grepl (pattern = MOTOR_VEHICLE_SOURCES_PATTERN, emissions_sources$EI.Sector, ignore.case = TRUE)
 
-motor_vehicle_sources <- emission_sources [motor_vehicle_discriminants, ]
+motor_vehicle_sources <- emissions_sources [motor_vehicle_discriminants, ]
 motor_vehicle_sources <- motor_vehicle_sources [motor_vehicle_sources$EI.Sector != EXTRANEOUS_SOURCE, ]
 
 # Second step: filtering emission data.
@@ -88,7 +87,7 @@ motor_vehicle_emissions <- emissions_data [emissions_data$SCC %in% motor_vehicle
 # We need to summarize the data, aggregating the emissions by year.
 # We also subset the data, focusing in Baltimore.
 print ("Creating aggregated data...")
-motor_vehicle_emissions_in_baltimore = subset (motor_vehicle_emissions, fips == BALTIMORE_CODE)
+motor_vehicle_emissions_in_baltimore <- subset (motor_vehicle_emissions, fips == BALTIMORE_CODE)
 motor_vehicle_emissions_per_year_in_baltimore <- data.table (motor_vehicle_emissions_in_baltimore) [ , list (emissions = sum (Emissions)), by = year]
 
 print ("Creating the plot...")
